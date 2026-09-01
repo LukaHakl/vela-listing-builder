@@ -1,0 +1,8 @@
+PyYAML==6.0.3          # products.yaml and config.yaml
+
+# Only used to read EXIF capture times when mapping videos to listings. Without
+# it the mapping falls back to file mtime, which is less reliable for files that
+# have been through a cloud folder.
+Pillow==12.3.0
+
+pytest==9.1.1          # tests only

@@ -1,0 +1,25 @@
+# Copy to config.yaml and fill in. config.yaml is gitignored.
+
+pricing:
+  # The shop applies a fixed multiplier to a supplied base price. Kept here and
+  # applied in exactly one place so the build summary can print base and final
+  # side by side and the arithmetic stays auditable.
+  multiplier: 1.60
+
+listings:
+  # Warn above this many variation combinations. Two axes multiply fast: one
+  # real listing reached 88 before being trimmed to 64. Trim with an `exclude`
+  # list in products.yaml, never by hand-editing the CSV -- a hand-edited CSV
+  # cannot be rebuilt, and every rebuild reintroduces what was trimmed.
+  variation_ceiling: 70
+
+  # Ten slots, which is Etsy's hard limit. A group that is absent collapses the
+  # gap rather than leaving an empty slot, because Etsy renders an empty slot as
+  # a missing image. Anything supplied beyond a group's allotted slots is
+  # reported as dropped in the build summary rather than silently discarded.
+  photo_layout:
+    - [ai_scene, 1]        # slot 1
+    - [originals, 2]       # slots 2-3
+    - [infographics, 3]    # slots 4-6
+    - [originals, 3]       # slots 7-9
+    - [cover, 1]           # slot 10

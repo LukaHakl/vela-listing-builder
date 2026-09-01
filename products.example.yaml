@@ -1,0 +1,34 @@
+# Synthetic example. Real product files are gitignored.
+
+- sku: PROD-VAR-001
+  title: Ancient Stone Golem
+  description: A heavy hitter for any table.
+  base_price: 15.00
+  quantity: "100"
+  tags: [fantasy, golem, terrain]
+  materials: [resin]
+  axis_1:
+    type: Size
+    name: Size
+    values: [S, M, L]
+  axis_2:
+    type: Colour
+    name: Edge colour
+    values: [Red, Gold]
+  # Trimming is declared here, not edited into the CSV afterwards.
+  exclude:
+    - [L, Gold]
+  photos:
+    ai_scene: [scene.jpg]
+    originals: [o1.jpg, o2.jpg, o3.jpg]
+    infographics: [chart.jpg]
+    cover: [cover.jpg]
+  # Custom buyer-input options cannot be set through the CSV. Named here so they
+  # reach post_import_todo.md instead of being dropped silently.
+  profiles: [Name to write]
+
+- sku: PROD-002
+  title: Frost Wyrm
+  base_price: 20.00
+  photos:
+    ai_scene: [wyrm.jpg]
